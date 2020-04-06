@@ -75,7 +75,7 @@ class controller {
     }
 
     static deleteFoods (req, res, next) {
-        let id = req.body.id;
+        let id = req.params.id;
         Food.destroy({
             where: {
                 id

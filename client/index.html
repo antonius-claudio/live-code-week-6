@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -14,19 +16,75 @@
             <a href="#" class="brand-logo">Logo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li id="menuLogin">Login</li>
-            <li id="">Sass</li>
             <li id="menuLogout">Logout</li>
             </ul>
         </div>
     </nav>
     <form id="formLogin">
         <div class="row">
-            <div class="input-field col s6">
-                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
+            <div class="col s4 offset-s4">
+                <h3>Login</h3>
+                <div class="input-field col s12">
+                    <input placeholder="email" id="email" type="text" class="validate">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="password" id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </div>
     </form>
+    <div id="contentFood">
+        <h1>Food</h1>
+        <button class="btn" id="addFormFood">
+            add food
+        </button>
+        <form id="formFood">
+            <div class="input-field col s12">
+                <input placeholder="title" id="title" type="text" class="validate">
+                <label for="title">Title</label>
+            </div>
+            <div class="input-field col s12">
+                <input placeholder="price" id="price" type="text" class="validate">
+                <label for="price">Price</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea placeholder="ingredients" id="ingredients" type="text" class="materialize-textarea"></textarea>
+                <label for="ingredients">Ingredients</label>
+            </div>
+            <div class="input-field col s12">
+                <select id="tag">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="ayam">ayam</option>
+                    <option value="ikan">ikan</option>
+                    <option value="other">other</option>
+                </select>
+                <label for="tag">Tag</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+        <div id="tableFood">
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>price</th>
+                        <th>ingredients</th>
+                        <th>tag</th>
+                    </tr>
+                </thead>
+                <tbody id="isiFood">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="main.js" ></script>
