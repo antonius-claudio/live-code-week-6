@@ -72,15 +72,16 @@ $(document).ready(() => {
                     <td>${result.price}</td>
                     <td>${result.ingredients}</td>
                     <td>${result.tag}</td>
-                    <td><button class="btn" data-id="${result.id}">delete</button></td>
+                    <td><button class="btn" data-id="${result.id}" id="btndelete">delete</button></td>
                 </tr>
             `);
-            
         })
         .catch((err) => {
             M.toast({html: JSON.stringify(err)})
         })
     })
+
+    $()
 })
 
 function page () {
