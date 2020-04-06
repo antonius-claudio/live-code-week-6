@@ -61,20 +61,21 @@ $(document).ready(() => {
             }
         })
         .done((result) => {
+            console.log(result)
             $('#title').val('');
             $('#price').val('');
             $('#ingredients').val('');
             $('#tag').val('');
-            result.forEach(i => {
-                $('#isiFood').append(`
+            $('#isiFood').append(`
                 <tr>
-                    <td>${i.title}</td>
-                    <td>${i.price}</td>
-                    <td>${i.ingredients}</td>
-                    <td>${i.tag}</td>
+                    <td>${result.title}</td>
+                    <td>${result.price}</td>
+                    <td>${result.ingredients}</td>
+                    <td>${result.tag}</td>
+                    <td><button class="btn" data-id="${result.id}">delete</button></td>
                 </tr>
-                `);
-            })
+            `);
+            
         })
         .catch((err) => {
             M.toast({html: JSON.stringify(err)})
@@ -93,5 +94,32 @@ function page () {
         $('#menuLogout').show();
         $('#formLogin').hide();
         $('#contentFood').show();
+        getAll();
     }
+}
+
+function getAll () {
+    $.ajax({
+        url: "http://localhost:3000/foods",
+        method: 'GET',
+        headers: {
+            access_token: localStorage.getItem('access_token')
+        }
+    })
+    .done((result) => {
+        result.forEach(i => {
+            $('#isiFood').append(`
+            <tr>
+                <td>${i.title}</td>
+                <td>${i.price}</td>
+                <td>${i.ingredients}</td>
+                <td>${i.tag}</td>
+                <td><button class="btn" data-id="${i.id}">delete</button></td>
+            </tr>
+            `);
+        })
+    })
+    .catch((err) => {
+        M.toast({html: JSON.stringify(err)})
+    })
 }
